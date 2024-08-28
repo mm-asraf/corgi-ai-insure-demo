@@ -8,6 +8,7 @@ import Card from '../utils/Card';
 
 
 
+
 interface WhyChooseUs {
     title: string;
     image: string;
@@ -45,6 +46,7 @@ const WhyChooseUs = () => {
     ];
 
     return (
+    
         <section className="py-12 bg-gray-100">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-8">Why Choose Us</h2>
@@ -61,6 +63,7 @@ const WhyChooseUs = () => {
         </div>
       </div>
     </section>
+   
     );
 };
 

@@ -1,6 +1,4 @@
 import KeyFeatures from "../Features/KeyFeatures"
-import Footer from "../Footer/Footer"
-import Header from "../Header/Header"
 import ProductSection from "../Products/ProductSection"
 import CustomerSatisfaction from "../Sections/CustomerSatisfaction"
 import HeroSection from "../Sections/HeroSection"
@@ -9,15 +7,26 @@ import WhyChooseUs from "../Sections/WhyChooseUs"
 
 const Home = () => {
   return (
-    <div>
-     <Header />
+   
+   
+   <div>
+      <div id="hero">
         <HeroSection />
-        <ProductSection/>
+      </div>
+      <div id="products">
+        <ProductSection />
+      </div>
+      <div id="features">
         <KeyFeatures />
+      </div>
+      <div id="whychooseus">
         <WhyChooseUs />
+      </div>
+      <div id="satisfaction">
         <CustomerSatisfaction />
-        <Footer />
+      </div>
     </div>
+  
   )
 }
 

@@ -1,12 +1,22 @@
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import corgi from '../../assets/corgi-log.png';
-
+import {Link as ScrollLink  } from 'react-scroll';
+import { useNavigate } from 'react-router-dom';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string, to: string) => {
+    navigate(path);  // Update the URL path
+    setTimeout(() => {
+      document.getElementById(to)?.scrollIntoView({ behavior: 'smooth' });  // Scroll to the section
+    }, 100);  // Delay to ensure the page has updated
   };
 
   return (
@@ -20,10 +30,12 @@ const Header = () => {
 
             {/* Navigation links - hidden on mobile */}
             <nav className="hidden md:flex space-x-6">
-              <a href="#Products" className="hover:text-gray-400">Products</a>
-              <a href="#Features" className="hover:text-gray-400">Features</a>
-              <a href="#whychooseus" className="hover:text-gray-400">Why Choose US</a>
-              <a href="#Contact Us" className="hover:text-gray-400">Contact Us</a>
+            <ScrollLink className='hover:text-gray-400 cursor-pointer' to="hero" smooth={true} duration={500} onClick={() => handleNavigation('/', 'hero')}>Home</ScrollLink>
+            <ScrollLink className='hover:text-gray-400 cursor-pointer' to="products" smooth={true} duration={500} onClick={() => handleNavigation('/products', 'products')}>Products</ScrollLink>
+            <ScrollLink className='hover:text-gray-400 cursor-pointer' to="features" smooth={true} duration={500} onClick={() => handleNavigation('/features', 'features')}>Key Features</ScrollLink>
+            <ScrollLink className='hover:text-gray-400 cursor-pointer' to="whychooseus" smooth={true} duration={500} onClick={() => handleNavigation('/whychooseus', 'whychooseus')}>Why Choose Us</ScrollLink>
+            <ScrollLink className='hover:text-gray-400 cursor-pointer' to="satisfaction" smooth={true} duration={500} onClick={() => handleNavigation('/satisfaction', 'satisfaction')}>Customer Satisfaction</ScrollLink>
+            
             </nav>
           </div>
 
@@ -45,10 +57,12 @@ const Header = () => {
         {isOpen && (
           <div className="md:hidden flex flex-col p-4 space-y-4">
             <div className="flex flex-col space-y-2">
-              <a href="#Products" className="hover:text-gray-400 text-left">Products</a>
-              <a href="#features" className="hover:text-gray-400 text-left">Features</a>
-              <a href="#whychooseus" className="hover:text-gray-400 text-left">Why Choose Us</a>
-              <a href="#Contact Us" className="hover:text-gray-400 text-left">Contact Us</a>
+            <ScrollLink className='hover:text-gray-400 cursor-pointer' to="hero"  smooth={true} duration={500} onClick={() => handleNavigation('/', 'hero')} >Home</ScrollLink>
+            <ScrollLink className='hover:text-gray-400 cursor-pointer' to="products" smooth={true} duration={500} onClick={() => handleNavigation('/products', 'products')}>Products</ScrollLink>
+            <ScrollLink className='hover:text-gray-400 cursor-pointer' to="features" smooth={true} duration={500} onClick={() => handleNavigation('/features', 'features')}>Key Features</ScrollLink>
+            <ScrollLink className='hover:text-gray-400 cursor-pointer' to="whychooseus" smooth={true} duration={500} onClick={() => handleNavigation('/whychooseus', 'whychooseus')}>Why Choose Us</ScrollLink>
+            <ScrollLink className='hover:text-gray-400 cursor-pointer' to="satisfaction" smooth={true} duration={500} onClick={() => handleNavigation('/satisfaction', 'satisfaction')}>Customer Satisfaction</ScrollLink>
+                  
             </div>
             <div className="flex flex-col space-y-2">
               <a href="#login" className="bg-customWhite border-2 border-customPurple text-customPurple px-4 py-2 rounded-md text-center">Login</a>
@@ -58,6 +72,7 @@ const Header = () => {
         )}
       </header>
     </nav>
+    
   );
 };
 
