@@ -1,6 +1,4 @@
-import React from 'react';
 
-// Import images for the features
 import instantCoverageImg from '../../assets/instant-insurance-coverage.jpeg'
 import easyClaimImg from '../../assets/instant-claim.jpeg';
 import supportImg from '../../assets/24-7-support.jpeg';
